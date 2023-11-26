@@ -2,3 +2,4 @@ node_modules
 typings
 package-lock.json
 typings.json
+src/tools
