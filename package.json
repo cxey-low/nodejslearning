@@ -1,0 +1,13 @@
+{
+  "name": "hellonode",
+  "description": "description",
+  "authors": "CXeY",
+  "version": "1.0.0",
+  "main": "src/main.js",
+  "private": true,
+  "dependencies": {
+    "koa": "2.14.2",
+    "koa-router": "12.0.1",
+    "koa-bodyparser": "4.4.1"
+  }
+}
