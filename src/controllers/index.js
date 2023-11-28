@@ -6,5 +6,5 @@ let index = (ctx, next) => {
 };
 
 module.exports = {
-    'GET /':index
-}
+  "GET /": index,
+};

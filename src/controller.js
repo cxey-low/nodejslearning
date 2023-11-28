@@ -12,7 +12,7 @@ let addController = (router, dir) => {
     let mapping = require(__dirname + "\\controllers\\" + f);
 
     for (let url in mapping) {
-      if (!(http_method.includes(url.substring(0, url.indexOf(" ")+1)))) {
+      if (!http_method.includes(url.substring(0, url.indexOf(" ") + 1))) {
         console.log(`invalid URL: ${url}`);
         continue;
       }

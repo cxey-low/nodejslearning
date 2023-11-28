@@ -18,11 +18,11 @@ let fn_signin = (ctx, next) => {
   }
 };
 
-let test = ()=>{
+let test = () => {
   return;
 };
 module.exports = {
   "GET /sign": fn_sign,
   "POST /signin": fn_signin,
-  "TEST /test":test
+  "TEST /test": test,
 };
