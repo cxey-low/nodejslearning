@@ -10,22 +10,23 @@ let addController = (router, dir) => {
   for (let f of js_files) {
     console.log(`process controller: ${f}`);
     let mapping = require(__dirname + "\\controllers\\" + f);
+
     for (let url in mapping) {
+      if (!(http_method.includes(url.substring(0, url.indexOf(" ")+1)))) {
+        console.log(`invalid URL: ${url}`);
+        continue;
+      }
       for (let method of http_method) {
-        try {
-          if (url.startsWith(method)) {
-            let path = url.substring(method.length);
-            let rou_fn = new Function(
-              "path",
-              "m",
-              "router",
-              `router.${method.trim().toLowerCase()}(path,m)`
-            );
-            rou_fn(path, mapping[url], router);
-            console.log(`register URL mapping: ${method}${path}`);
-          }
-        } catch (err) {
-          console.log(`invalid URL: ${url}`);
+        if (url.startsWith(method)) {
+          let path = url.substring(method.length);
+          let rou_fn = new Function(
+            "path",
+            "m",
+            "router",
+            `router.${method.trim().toLowerCase()}(path,m)`
+          );
+          rou_fn(path, mapping[url], router);
+          console.log(`register URL mapping: ${method}${path}`);
         }
       }
     }
